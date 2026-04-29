@@ -16,7 +16,7 @@
 
 ## 🛠️ Kurulum
 
-Aşağıdaki komutları sırasıyla çalıştırın:
+Termux Aşağıdaki komutları sırasıyla çalıştırın:
 
 ```bash
 pkg update && pkg upgrade -y
