@@ -3,9 +3,6 @@ import socket
 import threading
 import random
 import time
-import os
-
-os.system("clear")
 
 print("\033[92m")
 print("╔══════════════════════════════════════════════╗")
