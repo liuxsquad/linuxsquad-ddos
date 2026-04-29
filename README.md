@@ -1,4 +1,5 @@
-<img width="372" height="163" alt="7128" src="https://github.com/user-attachments/assets/0e45e146-bd5e-4574-97e2-e2b597a3245b" />
+<img width="682" height="138" alt="7132" src="https://github.com/user-attachments/assets/4d74d7b3-1dcf-43e5-8a0e-e2069eb7c5df" />
+
 
 # 🚀 LinuxSquad DDoS TOOLS
 
