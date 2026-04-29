@@ -6,8 +6,8 @@ import time
 
 print("\033[92m")
 print("╔══════════════════════════════════════════════╗")
-print("║          LINUXSQUAD DDoS TOOLS             ║")
-print("            Building:linuxsquad                        ║")
+print("║          LINUXSQUAD DDoS TOOLS               ║")
+print("            Building:linuxsquad                ║")
 print("╚══════════════════════════════════════════════╝")
 print("\033[0m")
 
