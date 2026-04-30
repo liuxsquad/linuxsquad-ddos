@@ -1,11 +1,11 @@
-<img width="650" height="111" alt="7246" src="https://github.com/user-attachments/assets/c100d6b9-717f-4b74-9f50-78361eab39ab" />
+<img width="312" height="53" alt="7247" src="https://github.com/user-attachments/assets/b7c1b751-a2aa-4e00-a0da-716ed69a9332" />
 
 
 
 # 🚀 LinuxSquad DDoS TOOLS
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-2.0-red?style=for-the-badge">
   <img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge">
 </p>
