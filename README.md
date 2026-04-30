@@ -1,4 +1,4 @@
-![Uploading 7246.jpg…]()
+<img width="650" height="111" alt="7246" src="https://github.com/user-attachments/assets/c100d6b9-717f-4b74-9f50-78361eab39ab" />
 
 
 
