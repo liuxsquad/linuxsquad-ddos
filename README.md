@@ -23,7 +23,9 @@
 
 Termuxda Aşağıdaki komutları sırasıyla çalıştırın:
 
-`pip install aiohttp`
+`pkg install python`
+
+`pkg install git`
 
 `pkg update && pkg upgrade -y`
 
