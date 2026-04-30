@@ -29,6 +29,8 @@ Termuxda Aşağıdaki komutları sırasıyla çalıştırın:
 
 `pkg install python git -y`
 
+`pkg install python -y && pip install aiohttp`
+
 `git clone https://github.com/liuxsquad/linuxsquad-ddos.git`
 
 `dc linuxsquad-ddos`
