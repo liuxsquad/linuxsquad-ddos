@@ -3,7 +3,7 @@
 
 
 
-# 🚀 LinuxSquad DDoS V2
+# 🚀 LinuxSquad DDoS V6 (layer4 - layer7) 
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-2.0-red?style=for-the-badge">
@@ -37,4 +37,4 @@ Termuxda Aşağıdaki komutları sırasıyla çalıştırın:
 
 `cd linuxsquad-ddos`
 
-`python storm_pro_v2.py `
+`python storm.py`
