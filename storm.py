@@ -9,10 +9,11 @@ print(" / / / / / / /_/ />  <(__  ) /_/ / /_/ / /_/ / /_/ /")
 print("/_/_/_/ /_/\\__,_/_/|_/____/\\__, /\\__,_/\\__,_/\\__,_/")
 print("                           /_/\033[0m")
 print("\033[93mdeveloper:@linuxsquad\033[0m")
-print("\n\033[92mpython storm.py <HEDEF> <PORT> [SURE] [THREAD]\033[0m\n")
+print("\033[92mpython storm.py <HEDEF> <PORT> [SURE] [THREAD]\033[0m")
+print("\033[94mJ'ai la permission et je suis autorisé à effectuer ce pentest\033[0m\n")
 
 if len(sys.argv)<3:
-    
+    print("python storm.py <HEDEF> <PORT> [SURE] [THREAD]");sys.exit(1)
 
 HEDEF=sys.argv[1];PORT=int(sys.argv[2]);SURE=int(sys.argv[3])if len(sys.argv)>3 else 60
 THREAD=min(int(sys.argv[4])if len(sys.argv)>4 else 200,250)
