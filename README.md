@@ -37,4 +37,4 @@ Termuxda Aşağıdaki komutları sırasıyla çalıştırın:
 
 `cd linuxsquad-ddos`
 
-`python storm.py`
+`python storm_pro_v2.py `
