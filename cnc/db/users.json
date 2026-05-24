@@ -1,0 +1,82 @@
+[
+    {
+        "username": "root",
+        "password": "changeme",
+        "api_key": "6aba0ee7e85c0316628c8c2561c0a75eb2ec0ac79479e359f8ae8b8aa0a5f1da",
+        "expire": "3024-12-25T00:00:00Z",
+        "level": "Owner",
+        "methods": [
+            "udpflood",
+            "tcpflood",
+            "syn",
+            "ack",
+            "gre",
+            "dns",
+            "http",
+            "https",
+            "cfbypass",
+            "rapidreset"
+        ]
+    },
+    {
+        "username": "admin",
+        "password": "test",
+        "api_key": "3d23e907d9ff4d3be117ce596dac881266e0b0967dab18f3d4adb8af55f09d0b",
+        "expire": "3024-12-25T00:00:00Z",
+        "level": "Admin",
+        "maxtime": 300,
+        "concurrents": 1,
+        "methods": [
+            "udpflood",
+            "tcpflood",
+            "syn",
+            "ack",
+            "gre",
+            "dns",
+            "http",
+            "https",
+            "cfbypass",
+            "rapidreset"
+        ]
+    },
+    {
+        "username": "pro_user",
+        "password": "changeme",
+        "api_key": "bc663744acaa3268e30684186cff207a25576f3640703d62bb0e537591a5cd05",
+        "expire": "2027-01-01T00:00:00Z",
+        "level": "Pro",
+        "maxtime": 600,
+        "concurrents": 3,
+        "maxbots": 2000,
+        "methods": [
+            "udpflood",
+            "tcpflood",
+            "syn",
+            "ack",
+            "gre",
+            "dns",
+            "http",
+            "https",
+            "cfbypass",
+            "rapidreset"
+        ]
+    },
+    {
+        "username": "basic_user",
+        "password": "changeme",
+        "api_key": "f8a66a68fa026f428f18ccb77752592d0938f3957b08842ec43b11e248406abc",
+        "expire": "2027-01-01T00:00:00Z",
+        "level": "Basic",
+        "maxtime": 300,
+        "concurrents": 1,
+        "maxbots": 500,
+        "methods": [
+            "tcpflood",
+            "syn",
+            "ack",
+            "dns",
+            "http",
+            "https"
+        ]
+    }
+]
