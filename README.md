@@ -351,9 +351,8 @@ Usage against systems without explicit prior consent is **illegal**. The develop
 
 <div align="center">
 
-**Developed by Syn2Much** — [hell@sinners.city](mailto:hell@sinners.city) | [@synacket](https://x.com/synacket)
+**Developed by linuxsquad** 
 
----
 
 ⭐ **Star this repository** if you find it useful for research purposes
 
